@@ -1,36 +1,19 @@
 # # # # -*- coding: utf-8 -*-
 class Solution(object):
     def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+        res = []
+        self.dfs(nums, [], res)
+        return res
 
-        ### Important!!!
-        if len(nums) == 0:
-            return [[]]
-        if len(nums) == 1:
-            return [nums]
+    def dfs(self, nums, path, res):
+        if not nums:
+            res.append(path)
+            # return # backtracking
+        for i in range(len(nums)):
+            self.dfs(nums[:i]+nums[i+1:], path+[nums[i]], res)
 
-        result = []
-        for i in range(0, len(nums)):
-            rest_nums = nums[0:i] + nums[i+1:]
-            #print rest_nums
-            rest_nums_permute = self.permute(rest_nums)
-            #print rest_nums_permute
-            for x in rest_nums_permute:
-                #print x
-                x.append(nums[i])
-                result.append(x)
-            #for x in rest_nums_permute:
-            #    print x
-        #print result
-        return result
 
 if __name__ == '__main__':
     s = Solution()
-    nums = [1,1,2]
-    # print nums[0:1]
-    # print nums[1:2]
-    # print nums[0:1]+nums[1:2]
-    print s.permute(nums)
+    nums = [1,2,3]
+    print (s.permute(nums))

@@ -5,38 +5,22 @@ class Solution(object):
         :param nums:
         :return:
         """
-        length = len(nums)
-        if length <= 2:
-            return
-        start = 0
-        end = start + 1
-        while start < length - 1:
-            end = start + 1
-            if nums[end] == nums[start]:
-                start += 1
-            else:
-                for i in range(end, length):
-                    if nums[i] == nums[start]:
-                        self.swap(nums, end, i)
-                        start += 2
-                        break
-        print nums
-
-    def swap(self,nums,start,i):
-        nums[start], nums[i] = nums[i], nums[start]
+        left = 0
+        right = len(nums) - 1
+        # first pass, will make all items that are smaller than 1 to be on the left zone
+        for i in range(0, len(nums)):
+            if nums[i] < 1:
+                nums[i], nums[left] = nums[left], nums[i]
+                left += 1
+        for i in range(len(nums)-1,left-1,-1):
+            if nums[i] > 1:
+                nums[i], nums[right] = nums[right], nums[i]
+                right -= 1
+        return nums
 
 if __name__ == '__main__':
     s = Solution()
-    nums = [1, 0, 2, 2, 1, 1, 2, 0]
+    nums = [1, 0, 2, 2, 1, 0]
     s.sortColors(nums)
-    print len(nums)
-    """
-    start = 0  #0
-    end = start + 1 #1
-    if nums[end] is diff than nums[start], starting from end, search till the end and find if anything is equal to
-    nums[start]: if yes then swap, start = start + 2 , else then just move start = start + 1 ->
-    meaning before start the color is already sorted
-
-    if nums[end] is the same as nums[start], start = start + 1, end = start + 1
-    """
+    print (nums)
 
