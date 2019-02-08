@@ -49,3 +49,6 @@ if __name__ == '__main__':
     string_txt = "aa"
     k=1
     print(s.countkDist(string_txt, k))
+    string_txt = "pqpqs"
+    k = 2
+    print(s.countkDist(string_txt, k))

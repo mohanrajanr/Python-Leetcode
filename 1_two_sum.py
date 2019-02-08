@@ -17,4 +17,4 @@ if __name__ == '__main__':
     s = Solution()
     nums = [2,7,11,15]
     target=13
-    print(s.twoSum(nu73ms,target))
+    print(s.twoSum(nums,target))
