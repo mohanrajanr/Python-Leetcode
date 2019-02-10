@@ -9,6 +9,7 @@ def countkDist(str1, k):
     res = 0
     # Consider all substrings beginning
     # with str[i]
+    result = []
     for i in range(0, len(str1)):
         dist_count = 0
 
@@ -31,16 +32,17 @@ def countkDist(str1, k):
             # then increment result.
             if (dist_count == k):
                 res += 1
+                result.append(str1[i:j+1])
             if (dist_count > k):
                 break
 
-    return res
+    return res, result
 
 
 # Driver Code
 if __name__ == "__main__":
-    str1 = "abcbaa"
-    k = 3
+    str1 = "pqpqs"
+    k = 2
     print("Total substrings with exactly", k,
           "distinct characters : ")
     print(countkDist(str1, k))
