@@ -24,9 +24,10 @@ class Solution:
             sum += temp_sum
             size += temp_size
 
-        if self.node is None or sum * 1.0 / size > self.average:
-            self.node = root
-            self.average = sum * 1.0 / size
+        if len(root.children) > 0:
+            if self.node is None or sum * 1.0 / size > self.average:
+                self.node = root
+                self.average = sum * 1.0 / size
 
         return sum, size
 
