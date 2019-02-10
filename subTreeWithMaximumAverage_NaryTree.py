@@ -1,3 +1,8 @@
+def findSubtree(root):
+    s = Solution()
+    s.findSubtree2(root)
+    return s.node
+
 class Solution:
     # @param {TreeNode} root the root of binary tree
     # @return {TreeNode} the root of the maximum average of subtree
@@ -25,3 +30,26 @@ class Solution:
 
         return sum, size
 
+class NaryTreeNode:
+    def __init__(self,
+                 val=None, children=None):
+        self.val = val
+        if not children:
+            self.children = []
+        else:
+            self.children = children[:]
+
+
+if __name__ == '__main__':
+    NaryTreeNode_110 = NaryTreeNode(110)
+    NaryTreeNode_20 = NaryTreeNode(20)
+    NaryTreeNode_30 = NaryTreeNode(30)
+    NaryTreeNode_120 = NaryTreeNode(120, [NaryTreeNode_110, NaryTreeNode_20, NaryTreeNode_30])
+
+
+    NaryTreeNode_150 = NaryTreeNode(150)
+    NaryTreeNode_80 = NaryTreeNode(80)
+    NaryTreeNode_180 = NaryTreeNode(180, [NaryTreeNode_150, NaryTreeNode_80])
+
+    NaryTreeNode_200 = NaryTreeNode(200, [NaryTreeNode_120, NaryTreeNode_180])
+    findSubtree(NaryTreeNode_200)
