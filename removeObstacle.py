@@ -88,3 +88,5 @@ if __name__ == '__main__':
     numRows = len(lot)
     numColumns = len(lot[0])
     assert removeObstacle(numRows, numColumns, lot) == 5
+
+# Expected time complexity is O(MN).

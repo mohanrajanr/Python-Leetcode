@@ -31,3 +31,5 @@ if __name__ == '__main__':
     aircraftOptimum(maximumOperatingTravelDistance,
                     forwardList,
                     returnList)
+
+# O(N^2)

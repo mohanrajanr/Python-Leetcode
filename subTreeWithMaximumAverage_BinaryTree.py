@@ -24,3 +24,4 @@ class Solution:
 
         return sum, size
 
+# It's equivalent to O(m) or O(n), where m is n-1 (the total number of edges)

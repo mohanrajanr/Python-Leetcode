@@ -30,3 +30,5 @@ if __name__ == '__main__':
     lst = [[1, 3], [-2, 2]]
     k = 1
     print (topKClosestToOrigin(lst, k))
+
+# Time complexity is O(Nlog(K)) ?

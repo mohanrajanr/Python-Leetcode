@@ -13,29 +13,6 @@ Maximum Minimum Path
 return: 5.
 */
 
-public int MaxMinPath (int[][] matrix) {
-    if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-        return 0;
-    }
-    int min = Integer.MAX_VALUE;
-    helper(matrix, min, 0, 0);
-    return max;
-}
-public void helper (int[][] matrix, int min, int row, int col) {
-
-    if (row >= matrix.length || col >= matrix[0].length) {
-        return;
-    }
-    if (row == matrix.length - 1 && col == matrix[0].length - 1) {
-        max = Math.max(min, max);
-        return;
-    }
-    min = Math.min(matrix[row][col], min);
-    helper(matrix, min, row + 1, col);
-    helper(matrix, min, row, col + 1);
-
-}
-
 
 public static int maximumMinimumPath(int[][] matrix) {
     if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
@@ -93,3 +70,5 @@ if __name__ == '__main__':
               [6, 5, 9]
               ]
     print(maximumMinimumPath(matrix))
+
+# O(m*n)
