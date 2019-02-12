@@ -1,6 +1,14 @@
 # create adjacency matrix for use in prims algorithm
 # note: we could improve the running time of prims algorithm by
 # implementing a priority queue data structure instead of a matrix
+
+
+# It first converts the graph into a matrix and then on each iteration
+# of Prim's algorithm, it adds edges to an array which is then searched
+# through linearly to find the edge with the smallest weight. If there
+# is a tie between edge weights, it simply chooses the first edge it encounters.
+
+
 def createAdjMatrix(V, G):
     adjMatrix = []
 
@@ -19,6 +27,9 @@ def createAdjMatrix(V, G):
 
 
 def prims(V, G):
+    # V: int , total number of vertices
+    # G: graph
+
     # create adj matrix from graph
     adjMatrix = createAdjMatrix(V, G)
 
@@ -27,7 +38,7 @@ def prims(V, G):
 
     # initialize empty edges array and empty MST
     MST = []
-    edges = []
+    edges = [] # Stores the possible edges from existing visited vertices
     visited = []
     minEdge = [None, None, float('inf')]
 
