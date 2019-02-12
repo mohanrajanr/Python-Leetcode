@@ -48,3 +48,5 @@ if __name__ == '__main__':
 
     banned = ["hit"]
     print(mostCommonWord(paragraph, banned))
+
+# It will sort the items by the 2nd index so the time complexity is O(Nlog(N))

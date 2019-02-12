@@ -46,3 +46,5 @@ if __name__ == "__main__":
     print("Total substrings with exactly", k,
           "distinct characters : ")
     print(countkDist(str1, k))
+
+# O(N^2)

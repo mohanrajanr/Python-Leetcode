@@ -17,7 +17,8 @@ class Solution:
     # from inner to outer
     def helper(self, s, l, r):
         while l >= 0 and r < len(s) and s[l] == s[r]:
-            l -= 1; r += 1
+            l -= 1
+            r += 1
         return s[l+1:r]
 
 if __name__ == '__main__':
@@ -39,3 +40,5 @@ if __name__ == '__main__':
     # print(s.longestPalindrome(str))
     str = "cbbbd"
     print(s.longestPalindrome(str))
+
+# Time complexity is O(n*n) because for each character it's possible to go all the way to the start/end
