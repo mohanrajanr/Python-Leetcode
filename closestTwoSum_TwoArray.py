@@ -33,3 +33,5 @@ if __name__ == '__main__':
     array2 = [3, 4, 5]
     capacity = 8
     print(optimalUtilization(array1, array2, capacity))
+
+# sortA, sortB: mlogm + nlogn, binary search num from A in B. mlogn, total: mlogm + nlogn + mlogn
