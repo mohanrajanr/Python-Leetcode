@@ -66,7 +66,7 @@ def removeObstacle(numRows, numColumns, lot):
                     visited[next_x][next_y]=1
                     # putting each adjacent node into queue, meaning this is BFS
                     queue.append([next_x, next_y, current_point[2]+1])
-    return 0
+    return -1
 
 if __name__ == '__main__':
     lot = [
