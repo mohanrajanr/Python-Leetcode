@@ -28,3 +28,5 @@ if __name__ == '__main__':
     str = "abcdkeewrf"
     size = 4
     print(substringWithKDistinct(str, size))
+
+# substring whose size is k

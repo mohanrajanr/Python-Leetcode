@@ -48,3 +48,4 @@ if __name__ == "__main__":
     print(countkDist(str1, k))
 
 # O(N^2)
+# only k distinct characters, but length could be more than k
