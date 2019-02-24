@@ -1,6 +1,5 @@
 # # # # -*- coding: utf-8 -*-
 class Solution(object):
-    memory = {}
 
     def wordBreak(self, s, wordDict):
         """
@@ -8,20 +7,15 @@ class Solution(object):
         :type wordDict: List[str]
         :rtype: bool
         """
-        if s in self.memory:
-            return True
+        return self.helper(s, wordDict, 0)
 
-        wordDict = set(wordDict)
-
-        if len(s) == 0:
+    def helper(self, s, wordDict, start):
+        if start == len(s):
             return True
-        for i in range(0, len(s)):
-            current_string = s[0:i+1]
-            if current_string in wordDict:
-                self.memory[current_string] = True
-                sub_string = s[i+1:]
-                if self.wordBreak(sub_string, wordDict):
-                    return True
+        for i in range(start+1, len(s)+1):
+            sub_string = s[start:i]
+            if sub_string in wordDict and self.helper(s, wordDict, i):
+                return True
         return False
 
 
@@ -29,8 +23,8 @@ if __name__ == '__main__':
     s = Solution()
     word = "applepenapple"
     wordDict = ["apple", "pen"]
-    word = "catsandog"
-    wordDict = ["cats", "dog", "sand", "and", "cat"]
-    word = "a"
-    wordDict = ["b"]
+    # word = "catsandog"
+    # wordDict = ["cats", "dog", "sand", "and", "cat"]
+    # word = "a"
+    # wordDict = ["b"]
     print(s.wordBreak(word, wordDict))
