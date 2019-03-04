@@ -7,14 +7,17 @@ class Solution(object):
         :type wordDict: List[str]
         :rtype: bool
         """
-        return self.helper(s, wordDict, 0)
+        return self.helper(s, wordDict, 0, {})
 
-    def helper(self, s, wordDict, start):
+    def helper(self, s, wordDict, start, temp):
         if start == len(s):
             return True
+        if start in temp:
+            return temp[start]
         for i in range(start+1, len(s)+1):
             sub_string = s[start:i]
-            if sub_string in wordDict and self.helper(s, wordDict, i):
+            if sub_string in wordDict and self.helper(s, wordDict, i, temp):
+                temp[start] = True
                 return True
         return False
 
