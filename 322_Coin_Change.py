@@ -1,29 +1,30 @@
 # # # # -*- coding: utf-8 -*-
+import sys
 class Solution(object):
-    def coinChange(self, coins, amount):
-        """
-        :type coins: List[int]
-        :type amount: int
-        :rtype: int
-        """
-        res = []
-        coins = sorted(coins, reverse=True)
-        self.dfs(coins, amount, [], res)
-        print(res)
-        if len(res) > 0:
-            return len(res[0])
-        return -1
+    res = sys.maxint
 
-    def dfs(self, coins, amount, path, res):
-        if amount < 0:
-            return
-        if amount == 0:
-            res.append(path)
-            return
-        for c in coins:
-            if c <= amount:
-                next_amount = amount - c
-                self.dfs(coins, next_amount, path+[c], res)
+    # def coinChange(self, coins, amount):
+    #     """
+    #     :type coins: List[int]
+    #     :type amount: int
+    #     :rtype: int
+    #     """
+    #     n = len(coins)
+    #     self.helper(coins, n-1, amount, 0)
+    #     if self.res == sys.maxint:
+    #         return -1
+    #     else:
+    #         return self.res
+    #
+    # def helper(self, coins, start, amount, cur):
+    #     if amount < 0:
+    #         return
+    #     if amount == 0:
+    #         self.res = min(self.res, cur)
+    #         return
+    #     for i in range(start, -1, -1):
+    #         self.helper(coins, i, amount-coins[i], cur+1)
+
 
 if __name__ == '__main__':
     s = Solution()
