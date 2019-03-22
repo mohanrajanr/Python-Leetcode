@@ -1,6 +1,14 @@
 # # # # -*- coding: utf-8 -*-
+
+
+# Note 1
 # https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/sliding-window-algorithm-template-to-solve-all-the-leetcode-substring-search-problem
 
+# Note 2
+# http://www.cnblogs.com/grandyang/p/5185561.html
+
+# Note 3
+# https://leetcode.com/problems/minimum-window-substring/discuss/26808/here-is-a-10-line-template-that-can-solve-most-substring-problems
 """
 Among all leetcode questions, I find that there are at least 5 substring search problem which could be solved by the sliding window algorithm.
 so I sum up the algorithm template here. wish it will help you!
