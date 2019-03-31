@@ -1,32 +1,4 @@
 # # # # -*- coding: utf-8 -*-
-class Solution1(object):
-    def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-
-        ### Important!!!
-        if len(nums) == 0:
-            return [[]]
-        if len(nums) == 1:
-            return [nums]
-
-        result = []
-        for i in range(0, len(nums)):
-            rest_nums = nums[0:i] + nums[i+1:]
-            #print rest_nums
-            rest_nums_permute = self.permute(rest_nums)
-            #print rest_nums_permute
-            for x in rest_nums_permute:
-                #print x
-                x.append(nums[i])
-                result.append(x)
-            #for x in rest_nums_permute:
-            #    print x
-        #print result
-        return result
-
 class Solution(object):
     def combine(self, n, k):
         """
@@ -34,29 +6,31 @@ class Solution(object):
         :type k: int
         :rtype: List[List[int]]
         """
-        result = []
+        res = []
         if n == 0:
             return [[]]
-        nums = [x+1 for x in range(n)]
-        for i in range(n): # i = 0 means nums[0], which is 1
-            current_list = []
-            current_list.append(nums[i])
-            for j in range(i+1,n):
-                current_list.append(nums[j])
-                if len(current_list) == k:
-                    result.append(current_list)
-                    break
-        return result
+        self.dfs(n, k, 1, [], res)
+        return res
+
+    def dfs(self, n, k, start, path, res):
+        if k == 0:
+            res.append(path[:]) # This is because later on path.remove(i) will remove the i in res too.
+            # res.append(path[:]) will append the entire complete data copy
+            # res.append(path) will only append the path reference, if the data in path changes then res also changes
+            return
+
+        for i in range(start, n+1):
+            path.append(i)
+            self.dfs(n, k-1, i+1, path, res)
+            path.remove(i)
 
 
 if __name__ == '__main__':
     s = Solution()
     n = 4
-    k = 3
-    nums = [x+1 for x in range(n)]
-    print nums
+    k = 2
     # print nums[0:1]
     # print nums[1:2]
     # print nums[0:1]+nums[1:2]
-    print s.combine(n,k)
+    print(s.combine(n,k))
 

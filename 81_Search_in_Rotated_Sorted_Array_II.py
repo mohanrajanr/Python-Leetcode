@@ -1,20 +1,19 @@
-# -*- coding: utf-8 -*-
-# 此题最难的地方不在于算法,而是在于while循环中start 和end的边界条件 - 何时有等号,何时start增加,何时end减少
+# # # # -*- coding: utf-8 -*-
 class Solution(object):
     def search(self, nums, target):
         """
         :type nums: List[int]
         :type target: int
-        :rtype: int
+        :rtype: bool
         """
         if nums is None or len(nums) == 0:
-            return -1
+            return False
         start = 0
         end = len(nums) - 1
-        while start + 1 < end: #
-            mid = start + (end-start) // 2
+        while start + 1 < end:
+            mid = start + (end - start) // 2
             if nums[mid] == target:
-                return mid
+                return True
             if nums[start] < nums[mid]:
                 if nums[start] <= target <= nums[mid]:
                     end = mid
@@ -25,17 +24,18 @@ class Solution(object):
                     start = mid
                 else:
                     end = mid
+            else:
+                end -= 1
         if nums[start] == target:
-            return start
+            return True
         if nums[end] == target:
-            return end
-        return -1
-
+            return True
+        return False
 
 if __name__ == '__main__':
-    s = Solution()
-    #nums =[4, 5, 6, 7, 0, 1, 2]
-    nums = [4,5,6,7,0,1,2]
-    #nums = [1,3]
+    # nums = [1,3,1,1,1]
+    # target = 3
+    nums = [2,2,2,0,2,2]
     target = 0
-    print(s.search(nums,target))
+    s = Solution()
+    print(s.search(nums, target))
